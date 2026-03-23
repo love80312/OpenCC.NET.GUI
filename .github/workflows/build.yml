@@ -1,0 +1,36 @@
+name: .NET Core Desktop Build
+
+on:
+  push:
+    branches: [ "master", "main" ] # 當你推送程式碼到這些分支時觸發
+  pull_request:
+    branches: [ "master", "main" ]
+  workflow_dispatch: # 允許你手動點擊按鈕執行
+
+jobs:
+  build:
+    runs-on: windows-latest # WPF 必須在 Windows 環境編譯
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build project
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Publish application
+      run: dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishReadyToRun=true -o ./publish
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: OpenCC-NET-GUI-Binary
+        path: ./publish/*.exe
