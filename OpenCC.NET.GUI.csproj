@@ -6,7 +6,7 @@
     <UseWPF>true</UseWPF>
     <SatelliteResourceLanguages>zh-CN;zh-TW</SatelliteResourceLanguages>
     <ApplicationIcon>opencc-net-gui.ico</ApplicationIcon>
-    <Version>1.2.0</Version>
+    <Version>1.2.1.0323</Version>
   </PropertyGroup>
 
   <ItemGroup>
