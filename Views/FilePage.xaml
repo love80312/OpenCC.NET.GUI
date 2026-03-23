@@ -133,11 +133,11 @@
                         <ui:DropDownButton.Flyout>
                             <ui:MenuFlyout Placement="BottomEdgeAlignedLeft">
                                 <MenuItem
-                                    Header="清除完成"
+                                    Header="清除已處理"
                                     Command="{Binding ClearFileCommand}"
                                     CommandParameter="Success" />
                                 <MenuItem
-                                    Header="清除全部"
+                                    Header="清空全部"
                                     Command="{Binding ClearFileCommand}"
                                     CommandParameter="All" />
                             </ui:MenuFlyout>
