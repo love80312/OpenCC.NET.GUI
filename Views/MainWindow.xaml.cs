@@ -49,7 +49,7 @@ namespace OpenCC.NET.GUI.Views
             }
             catch (Exception)
             {
-                MessageBox.Show("加载失败，请检查资源文件是否缺失！");
+                MessageBox.Show("讀取失敗，請檢查資源文件是否缺失！");
                 Application.Current.Shutdown();
             }
         }
