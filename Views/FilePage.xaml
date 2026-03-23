@@ -32,12 +32,12 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="输出目录：" VerticalAlignment="Center" />
+                    <TextBlock Text="輸出目錄：" VerticalAlignment="Center" />
                     <TextBox Grid.Column="1" Text="{Binding OutputFolder}" IsReadOnly="True" Margin="5,0" />
                     <Button Grid.Column="2" Command="{Binding SelectOutputFolderCommand}">
                         <StackPanel Orientation="Horizontal">
                             <ui:FontIcon Glyph="&#xE8DE;" Margin="0,0,5,0" />
-                            <TextBlock Text="选择目录"/>
+                            <TextBlock Text="選擇目錄"/>
                         </StackPanel>
                     </Button>
                 </Grid>
@@ -57,7 +57,7 @@
                     ItemsSource="{Binding Files,Mode=OneWay}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn
-                            Header="状态"
+                            Header="狀態"
                             Width="Auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -80,7 +80,7 @@
                             </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>
                         <DataGridTextColumn
-                            Header="原路径"
+                            Header="原路徑"
                             Width="300"
                             Binding="{Binding Path}">
                             <DataGridTextColumn.CellStyle>
@@ -93,7 +93,7 @@
                             </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>
                         <DataGridTextColumn
-                            Header="输出位置"
+                            Header="輸出位置"
                             Width="300"
                             Binding="{Binding OutputFolder}">
                             <DataGridTextColumn.CellStyle>
@@ -118,7 +118,7 @@
                         <ui:FontIcon Glyph="&#xE109;" />
                     </Button>
                     <Button
-                        ToolTip="移除选中"
+                        ToolTip="移除選中"
                         Margin="2"
                         Command="{Binding RemoveFileCommand}"
                         CommandParameter="{Binding ElementName=DgFile,Path=SelectedItems}">
