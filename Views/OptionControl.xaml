@@ -20,12 +20,12 @@
     </UserControl.Resources>
     <Grid>
         <GroupBox
-            Header="选项"
+            Header="選項"
             IsEnabled="{Binding IsProcessing,Converter={StaticResource InverseBoolConverter},Mode=OneWay}">
             <ui:SimpleStackPanel>
                 <ui:RadioButtons
                     Focusable="False"
-                    Header="分词方式:"
+                    Header="分詞方式:"
                     MaxColumns="2"
                     Margin="5"
                     SelectedIndex="{Binding SegmentationMode,Converter={StaticResource SegmentationModeToIntConverter}}">
@@ -33,7 +33,7 @@
                         Content="最大匹配"
                         IsChecked="True" />
                     <RadioButton
-                        Content="结巴分词" />
+                        Content="結巴分詞" />
                 </ui:RadioButtons>
                 <ui:RadioButtons
                     Focusable="False"
@@ -44,54 +44,54 @@
                     SelectedIndex="{Binding OriginalCharacter,Converter={StaticResource CharacterTypeToIntConverter}}">
                     <RadioButton
                         x:Name="RadOriginSimplified"
-                        Content="简体"
+                        Content="簡體"
                         IsChecked="True" />
                     <RadioButton
                         x:Name="RadOriginTraditional"
-                        Content="繁体" />
+                        Content="繁體" />
                 </ui:RadioButtons>
                 <ui:RadioButtons
                     x:Name="RadTarget"
-                    Header="目标:"
+                    Header="目標:"
                     MaxColumns="2"
                     Margin="5"
                     SelectedIndex="{Binding TargetCharacter,Converter={StaticResource CharacterTypeToIntConverter}}">
                     <RadioButton
                         x:Name="RadTargetSimplified"
                         IsEnabled="{Binding IsRadTargetSimplifiedEnabled}"
-                        Content="简体" />
+                        Content="簡體" />
                     <RadioButton
                         x:Name="RadTargetTraditional"
-                        Content="繁体"
+                        Content="繁體"
                         IsChecked="True" />
                 </ui:RadioButtons>
                 <ui:RadioButtons
                     x:Name="RadVariant"
-                    Header="异体字:"
+                    Header="異體字:"
                     MaxColumns="3"
                     Margin="5"
                     Visibility="{Binding RadVariantVisibility}"
                     SelectedIndex="{Binding TargetVariant,Converter={StaticResource VariantTypeToIntConverter}}">
                     <RadioButton
                         x:Name="RadVariantOpenCC"
-                        Content="OpenCC标准"/>
+                        Content="OpenCC標準"/>
                     <RadioButton
                         x:Name="RadVariantTW"
-                        Content="台湾标准" 
+                        Content="臺灣標準" 
                         IsChecked="True" />
                     <RadioButton
                         x:Name="RadVariantHK"
-                        Content="香港标准" />
+                        Content="香港標準" />
                 </ui:RadioButtons>
                 <ui:ToggleSwitch
                     x:Name="SwIdiom"
-                    Header="地域用词转换:"
-                    ToolTip="地域用词转换不能保证正确，请谨慎使用"
+                    Header="地域用詞轉換:"
+                    ToolTip="地域用詞轉換不能保證正確，請謹慎使用"
                     Margin="5"
                     Visibility="{Binding SwIdiomVisibility}"
                     IsOn="{Binding IsIdiomConvert}"
                     OnContent="{Binding IdiomName}"
-                    OffContent="不转换" />
+                    OffContent="不轉換" />
                 <ui:ProgressBar
                     IsIndeterminate="{Binding IsProcessing}"
                     Visibility="{Binding IsProcessing,Converter={StaticResource BoolToVisibilityConverter}}"
@@ -99,7 +99,7 @@
                     Margin="20" />
                 <Button
                     FontSize="16"
-                    Content="  转换  "
+                    Content="  轉換  "
                     Margin="5"
                     Command="{Binding ConvertCommand}" />
             </ui:SimpleStackPanel>
