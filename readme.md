@@ -2,40 +2,40 @@
 
 ![](opencc-net-gui.png)
 
-## 介绍
+## 介紹
 
-OpenCC.NET GUI 是基于 OpenCC (Open Chinese Convert, 开放中文转换)，使用 [OpenCC.NET](https://github.com/CosineG/OpenCC.NET) 实现的中文转换工具，支持中文简繁体之间词汇级别的转换，同时还支持地域间异体字以及词汇的转换。
+OpenCC.NET GUI 是基於 OpenCC (Open Chinese Convert, 開放中文轉換)，使用 [OpenCC.NET](https://github.com/CosineG/OpenCC.NET) 實現的中文轉換工具，支持中文簡繁體之間詞彙級別的轉換，同時還支持地域間異體字以及詞彙的轉換。
 
 ## 功能
 
-- 支持文本和批量文件的简繁转换。
-- 文件格式：支持纯文本、Word (`.docx`)、Excel (`.xlsx`) 和 PowerPoint (`.pptx`)。暂不支持 PDF 格式。
-- 转换选项：
-  - 可自定义原文、目标格式（简/繁）。
-  - 支持 OpenCC、台湾、香港异体字标准。
-  - 支持大陆、台湾地区词汇转换。
-  - 可选“最大匹配”或“结巴分词”模式。
+- 支持文本和批量文件的簡繁轉換。
+- 文件格式：支持純文本、Word (`.docx`)、Excel (`.xlsx`) 和 PowerPoint (`.pptx`)。暫不支持 PDF 格式。
+- 轉換選項：
+  - 可自定義原文、目標格式（簡/繁）。
+  - 支持 OpenCC、臺灣、香港異體字標準。
+  - 支持大陸、臺灣地區詞彙轉換。
+  - 可選「最大匹配」或「結巴分詞」模式。
 
 
-## 开始
+## 開始
 
-### 获取
+### 獲取
 
-可以直接在仓库页面右侧获取最新Release版本，或下载源码后自行编译。若无法运行，请确保安装了 [.NET 8 运行时](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-desktop-8.0.22-windows-x64-installer)。
+可以直接在倉庫頁面右側獲取最新Release版本，或下載源碼後自行編譯。若無法運行，請確保安裝了 [.NET 8 運行時](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-desktop-8.0.22-windows-x64-installer)。
 
 ### 使用
 
-软件提供了文本编辑转换和文件批量转换两种功能。
+軟件提供了文本編輯轉換和文件批量轉換兩種功能。
 
-#### 文本编辑转换
+#### 文本編輯轉換
 
-此模式下直接在文本框中输入你所需要转换的语句，在右侧选择转换选项后，点击转换按钮即可得到结果。
+此模式下直接在文本框中輸入你所需要轉換的語句，在右側選擇轉換選項後，點擊轉換按鈕即可得到結果。
 
 ![](screenshot-1.png)
 
-#### 文件批量转换
+#### 文件批量轉換
 
-此模式下可以批量导入文件进行转换。当前支持纯文本和 `.docx`, `.pptx`, `.xlsx` 格式，未知格式将默认按照纯文本进行转换，暂不支持 PDF。
+此模式下可以批量導入文件進行轉換。當前支持純文本和 `.docx`, `.pptx`, `.xlsx` 格式，未知格式將默認按照純文本進行轉換，暫不支持 PDF。
 
 ![](screenshot-2.png)
 
@@ -43,15 +43,15 @@ OpenCC.NET GUI 是基于 OpenCC (Open Chinese Convert, 开放中文转换)，使
 
 ### OpenCC.NET
 
-[OpenCC.NET](https://github.com/CosineG/OpenCC.NET)实现文本转换。
+[OpenCC.NET](https://github.com/CosineG/OpenCC.NET)實現文本轉換。
 
 ### OpenCC
 
-[OpenCC](https://github.com/BYVoid/OpenCC)为OpenCC.NET提供词库。
+[OpenCC](https://github.com/BYVoid/OpenCC)為OpenCC.NET提供詞庫。
 
 ### jieba.NET
 
-[jieba.NET](https://github.com/anderscui/jieba.NET)为OpenCC.NET提供分词。
+[jieba.NET](https://github.com/anderscui/jieba.NET)為OpenCC.NET提供分詞。
 
 ### ModernWpf
 
@@ -59,4 +59,4 @@ OpenCC.NET GUI 是基于 OpenCC (Open Chinese Convert, 开放中文转换)，使
 
 ### Ookii.Dialogs.Wpf
 
-[Ookii.Dialogs.Wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf)提供选择文件夹窗口（没错，WPF没有自带选择文件夹窗口）。
+[Ookii.Dialogs.Wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf)提供選擇文件夾窗口（沒錯，WPF沒有自帶選擇文件夾窗口）。
