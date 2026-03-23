@@ -1,0 +1,42 @@
+name: Build OpenCC.NET.GUI (Standard)
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+  workflow_dispatch: # 允許你隨時手動點擊執行
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore OpenCC.NET.GUI/OpenCC.NET.GUI.csproj
+
+    - name: Build and Publish
+      # 保持你的預設 PublishSingleFile 封裝設定
+      # 使用 -o ./build_output 避開 .gitignore 衝突
+      run: >
+        dotnet publish OpenCC.NET.GUI/OpenCC.NET.GUI.csproj
+        -c Release
+        -r win-x64
+        --self-contained true
+        -p:PublishSingleFile=true
+        -p:PublishReadyToRun=true
+        -o ./build_output
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: OpenCC-NET-GUI-v1.2.0 # 名稱可自訂
+        path: ./build_output/
