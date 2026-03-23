@@ -25,8 +25,8 @@
             IsBackButtonVisible="Collapsed" 
             SelectionChanged="NavigationView_SelectionChanged">
             <ui:NavigationView.MenuItems>
-                <ui:NavigationViewItem Content="文本编辑转换" Tag="Text" Icon="Edit" />
-                <ui:NavigationViewItem Content="文件批量转换" Tag="File" Icon="OpenFile" />
+                <ui:NavigationViewItem Content="文本編輯轉換" Tag="Text" Icon="Edit" />
+                <ui:NavigationViewItem Content="文件批量轉換" Tag="File" Icon="OpenFile" />
             </ui:NavigationView.MenuItems>
             <Grid>
                 <Grid.ColumnDefinitions>
