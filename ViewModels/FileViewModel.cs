@@ -17,7 +17,7 @@ using OpenCC.NET.GUI.Enums;
 namespace OpenCC.NET.GUI.ViewModels
 {
     /// <summary>
-    /// 转换所用的文件容器
+    /// 轉換所用的文件容器
     /// </summary>
     public class File : ObservableObject
     {
@@ -74,7 +74,7 @@ namespace OpenCC.NET.GUI.ViewModels
 
         protected override void OnActivated()
         {
-            // 收到请求后将列表中的文件作为消息发送
+            // 收到請求後將列表中的文件作為消息發送
             Messenger.Register<FileViewModel, string, string>(this, "RequestFile", (_, m) =>
             {
                 if (Files.Count != 0)
@@ -83,7 +83,7 @@ namespace OpenCC.NET.GUI.ViewModels
                 }
             });
 
-            // 即使更新列表中文件当前的处理状态
+            // 即使更新列表中文件當前的處理狀態
             Messenger.Register<FileViewModel, File, string>(this, "FileStatusRunning",
                 (_, m) => { m.Status = FileStatus.Running; });
             Messenger.Register<FileViewModel, File, string>(this, "FileStatusSuccess",
@@ -102,7 +102,7 @@ namespace OpenCC.NET.GUI.ViewModels
         {
             var folderBrowserDialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog
             {
-                Description = "请选择输出位置",
+                Description = "請選擇輸出位置",
                 UseDescriptionForTitle = true,
                 ShowNewFolderButton = true
             };
@@ -123,7 +123,7 @@ namespace OpenCC.NET.GUI.ViewModels
                 }
             }
             
-            // 选择原文件
+            // 選擇原文件
             var openFileDialog = new OpenFileDialog {Filter = "所有文件 (*.*)|*.*", Multiselect = true};
             if (openFileDialog.ShowDialog() == false) return;
             var dialogFilePaths = openFileDialog.FileNames;
