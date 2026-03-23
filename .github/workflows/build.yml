@@ -1,9 +1,7 @@
-name: Build OpenCC.NET.GUI (Standard)
+name: Build OpenCC.NET.GUI (Lightweight)
 
 on:
   push:
-    branches: [ "master", "main" ]
-  pull_request:
     branches: [ "master", "main" ]
   workflow_dispatch: 
 
@@ -21,22 +19,25 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Restore dependencies
-      # 直接指向根目錄的專案檔
       run: dotnet restore OpenCC.NET.GUI.csproj
 
     - name: Build and Publish
-      # 移除路徑前綴，直接編譯 OpenCC.NET.GUI.csproj
+      # --self-contained false: 輕量化，依賴系統 .NET
+      # -p:PublishSingleFile=true: 封裝 DLL 
+      # -p:DebugType=none & -p:DebugSymbols=false: 徹底移除 .pdb
       run: >
         dotnet publish OpenCC.NET.GUI.csproj
         -c Release
         -r win-x64
-        --self-contained true
+        --self-contained false
         -p:PublishSingleFile=true
         -p:PublishReadyToRun=true
+        -p:DebugSymbols=false
+        -p:DebugType=none
         -o ./build_output
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: OpenCC-NET-GUI-v1.2.0
+        name: OpenCC-NET-GUI-Light-v1.2.0
         path: ./build_output/
