@@ -13,7 +13,7 @@
         <viewModels:TextViewModel />
     </Page.DataContext>
     <Grid>
-        <GroupBox Header="文本编辑">
+        <GroupBox Header="文本編輯">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
@@ -32,10 +32,10 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="原始文本" VerticalAlignment="Center" FontSize="16"/>
                         <StackPanel Grid.Column="2" Orientation="Horizontal">
-                            <Button Command="{Binding PasteCommand}" ToolTip="粘贴" Margin="0,0,5,0">
+                            <Button Command="{Binding PasteCommand}" ToolTip="貼上" Margin="0,0,5,0">
                                 <ui:FontIcon Glyph="&#xE77F;"/>
                             </Button>
-                            <Button Command="{Binding ClearCommand}" ToolTip="清除">
+                            <Button Command="{Binding ClearCommand}" ToolTip="清空">
                                 <ui:FontIcon Glyph="&#xE74D;"/>
                             </Button>
                         </StackPanel>
@@ -43,7 +43,7 @@
                     <TextBox
                         Grid.Row="1"
                         Margin="12,5,12,12"
-                        ui:ControlHelper.PlaceholderText="请输入文本"
+                        ui:ControlHelper.PlaceholderText="請輸入文本"
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
                         Text="{Binding OriginalText, UpdateSourceTrigger=PropertyChanged}" />
@@ -62,14 +62,14 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock
                             Grid.Column="0"
-                            Text="转换结果"
+                            Text="轉換結果"
                             VerticalAlignment="Center"
                             FontSize="16" />
                         <StackPanel Grid.Column="2" Orientation="Horizontal">
-                            <Button Command="{Binding CopyConvertedCommand}" ToolTip="复制" Margin="0,0,5,0">
+                            <Button Command="{Binding CopyConvertedCommand}" ToolTip="複製" Margin="0,0,5,0">
                                 <ui:FontIcon Glyph="&#xE8C8;"/>
                             </Button>
-                            <Button Command="{Binding ClearConvertedCommand}" ToolTip="清除">
+                            <Button Command="{Binding ClearConvertedCommand}" ToolTip="清空">
                                 <ui:FontIcon Glyph="&#xE74D;"/>
                             </Button>
                         </StackPanel>
