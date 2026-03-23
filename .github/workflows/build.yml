@@ -1,9 +1,9 @@
-name: Build OpenCC.NET.GUI (Lightweight)
+name: Build OpenCC.NET.GUI (Final Lightweight)
 
 on:
   push:
-    branches: [ "master", "main" ]
-  workflow_dispatch: 
+    branches: [ "master", "main", "cnt" ] # 包含你的主分支與開發分支
+  workflow_dispatch: # 支援手動觸發測試
 
 jobs:
   build:
@@ -22,22 +22,28 @@ jobs:
       run: dotnet restore OpenCC.NET.GUI.csproj
 
     - name: Build and Publish
-      # --self-contained false: 輕量化，依賴系統 .NET
-      # -p:PublishSingleFile=true: 封裝 DLL 
-      # -p:DebugType=none & -p:DebugSymbols=false: 徹底移除 .pdb
+      # 關鍵參數說明：
+      # --self-contained false: 不包內建 .NET 運行環境 (節省 ~150MB)
+      # -p:PublishSingleFile=true: 將第三方 DLL 封裝進 EXE
+      # -p:PublishReadyToRun=false: 關閉預編譯以縮減 EXE 體積
+      # -p:DebugSymbols=false & -p:DebugType=none: 徹底移除 .pdb 偵錯檔
       run: >
         dotnet publish OpenCC.NET.GUI.csproj
         -c Release
-        -r win-x64
         --self-contained false
         -p:PublishSingleFile=true
-        -p:PublishReadyToRun=true
+        -p:PublishReadyToRun=false
         -p:DebugSymbols=false
         -p:DebugType=none
-        -o ./build_output
+        -o ./dist
+
+    - name: Zip Artifact
+      shell: pwsh
+      # 將編譯產出的 dist 資料夾（含 EXE 與資源資料夾）打包成單一 ZIP
+      run: Compress-Archive -Path ./dist/* -DestinationPath OpenCC-NET-GUI-Light.zip
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: OpenCC-NET-GUI-Light-v1.2.0
-        path: ./build_output/
+        name: OpenCC-NET-GUI-v1.2.1-Light
+        path: OpenCC-NET-GUI-Light.zip
